@@ -14,7 +14,7 @@ def plot_poisson_pmf(lambda_param=8, max_l=20):
     # 1. 使用np.arange生成l值序列
     # 2. 使用给定公式计算PMF
     # 3. 使用plt绘制图形并设置标签
-     l_values = np.arange(0, max_l + 1)
+    l_values = np.arange(0, max_l + 1)
     pmf = (lambda_param ** l_values) * np.exp(-lambda_param) / factorial(l_values)
     
     plt.figure()
@@ -25,8 +25,7 @@ def plot_poisson_pmf(lambda_param=8, max_l=20):
     plt.xlim(-0.5, max_l + 0.5)
     plt.grid(True)
     plt.tight_layout()
-    return l_values, pmf  # 添加返回值
-
+    return l_values, pmf
 
 def simulate_coin_flips(n_experiments=10000, n_flips=100, p_head=0.08):
     """模拟多组抛硬币实验
