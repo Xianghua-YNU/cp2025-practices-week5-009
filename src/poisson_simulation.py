@@ -14,20 +14,18 @@ def plot_poisson_pmf(lambda_param=8, max_l=20):
     # 1. 使用np.arange生成l值序列
     # 2. 使用给定公式计算PMF
     # 3. 使用plt绘制图形并设置标签
-    l_values = np.arange(0, max_l + 1)
+     l_values = np.arange(0, max_l + 1)
     pmf = (lambda_param ** l_values) * np.exp(-lambda_param) / factorial(l_values)
     
     plt.figure()
-    # 修正后的stem调用
-    plt.stem(l_values, pmf, 
-             linefmt='b-', markerfmt='bo', 
-             basefmt=' ')  # 设置基础线样式为透明
+    plt.stem(l_values, pmf, linefmt='b-', markerfmt='bo', basefmt=' ')
     plt.title(f"泊松分布概率质量函数 (λ={lambda_param})")
     plt.xlabel('l')
     plt.ylabel('概率')
     plt.xlim(-0.5, max_l + 0.5)
     plt.grid(True)
     plt.tight_layout()
+    return l_values, pmf  # 添加返回值
 
 
 def simulate_coin_flips(n_experiments=10000, n_flips=100, p_head=0.08):
