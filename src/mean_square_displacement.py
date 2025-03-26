@@ -84,7 +84,7 @@ def analyze_step_dependence():
     # 1. 调用calculate_mean_square_displacement获取数据
     # 2. 使用最小二乘法拟合 msd = k * steps
     # 3. k = Σ(N·msd)/Σ(N²)
-steps, msd = calculate_mean_square_displacement()
+    steps, msd = calculate_mean_square_displacement()
     k = np.sum(steps * msd) / np.sum(steps**2)
     return steps, msd, k
 
