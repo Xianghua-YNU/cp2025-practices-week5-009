@@ -18,7 +18,10 @@ def plot_poisson_pmf(lambda_param=8, max_l=20):
     pmf = (lambda_param ** l_values) * np.exp(-lambda_param) / factorial(l_values)
     
     plt.figure()
-    plt.stem(l_values, pmf, use_line_collection=True)
+    # 修正后的stem调用
+    plt.stem(l_values, pmf, 
+             linefmt='b-', markerfmt='bo', 
+             basefmt=' ')  # 设置基础线样式为透明
     plt.title(f"泊松分布概率质量函数 (λ={lambda_param})")
     plt.xlabel('l')
     plt.ylabel('概率')
