@@ -14,8 +14,8 @@ def plot_poisson_pmf(lambda_param=8, max_l=20):
     # 1. 使用np.arange生成l值序列
     # 2. 使用给定公式计算PMF
     # 3. 使用plt绘制图形并设置标签
-    l_values = np.arange(0, max_l + 1)  # 生成0到max_l的整数序列
-    pmf = (lambda_param ** l_values * np.exp(-lambda_param) / factorial(l_values)  # 计算PMF
+    l_values = np.arange(0, max_l+1)  # 生成0到max_l的整数序列
+    pmf = (lambda_param ** l_values )* np.exp(-lambda_param) / factorial(l_values)  # 计算PMF
     
     plt.figure(figsize=(10, 6))
     plt.stem(l_values, pmf, linefmt='b-', markerfmt='bo', basefmt=' ')  # 绘制离散分布
