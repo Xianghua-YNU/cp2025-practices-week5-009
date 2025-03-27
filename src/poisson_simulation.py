@@ -15,14 +15,14 @@ def plot_poisson_pmf(lambda_param=8, max_l=20):
     # 2. 使用给定公式计算PMF
     # 3. 使用plt绘制图形并设置标签
     l_values = np.arange(max_l)
-    pmf = (lambda_param ** l_values * np.exp(-lambda_param)) / factorial(l_values)
+    pmf = (lambda_param**l_values * np.exp(-lambda_param)) / factorial(l_values)
     
-    plt.figure(figsize=(10,6))
+    plt.figure(figsize=(10, 6))
     plt.plot(l_values, pmf, 'bo-', label='Theoretical Distribution')
     plt.title(f'Poisson Probability Mass Function (λ={lambda_param})')
     plt.xlabel('l')
-    plt.ylabel('P(l)')
-    Plt.grid(True)
+    plt.ylabel('p(l)')
+    plt.grid(True)
     plt.legend()
     return pmf
 
@@ -41,11 +41,11 @@ def simulate_coin_flips(n_experiments=10000, n_flips=100, p_head=0.08):
     # 提示：
     # 1. 使用np.random.choice模拟硬币抛掷
     # 2. 统计每组实验中正面的次数
-    results = []
+    results = []  #记录硬币正面朝上的次数
     for i in range(n_experiments):
-        coins = np.random.choice([0,1],n_flips, p=[1-p_head,p_head])
+        coins = np.random.choice([0,1],n_flips, p=[1-p_head,p_head]) #抛硬币100次
         results.append(coins.sum())
-        
+
     return np.array(results)
 
 def compare_simulation_theory(n_experiments=10000, lambda_param=8):
@@ -61,7 +61,7 @@ def compare_simulation_theory(n_experiments=10000, lambda_param=8):
     # 2. 计算理论分布
     # 3. 绘制直方图和理论曲线
     # 4. 计算并打印统计信息
-     results = simulate_coin_flips(n_experiments)
+    results = simulate_coin_flips(n_experiments)
     
     # 计算理论分布
     max_l = max(int(lambda_param * 2), max(results) + 1)
@@ -83,7 +83,6 @@ def compare_simulation_theory(n_experiments=10000, lambda_param=8):
     # 打印统计信息
     print(f"实验均值: {np.mean(results):.2f} (理论值: {lambda_param})")
     print(f"实验方差: {np.var(results):.2f} (理论值: {lambda_param})")
-
 if __name__ == "__main__":
     # 设置随机种子
     np.random.seed(42)
