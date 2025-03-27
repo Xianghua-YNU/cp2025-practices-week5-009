@@ -43,7 +43,7 @@ def simulate_coin_flips(n_experiments=10000, n_flips=100, p_head=0.08):
     # 2. 统计每组实验中正面的次数
     results = []
     for i in range(n_experiments):
-        coins = np.random.choice([0,1],n_flips, p=[1-p_head,p=p_head])
+        coins = np.random.choice([0,1],n_flips, p=[1-p_head,p_head])
         results.append(coins.sum())
         
     return np.array(results)
