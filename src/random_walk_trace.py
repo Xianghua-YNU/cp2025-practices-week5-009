@@ -15,6 +15,7 @@ def random_walk_2d(steps):
     # 1. 使用 np.random.choice 生成随机步长 ([-1, 1])
     # 2. 分别生成x和y方向的步长序列
     # 3. 使用 cumsum() 计算累积和得到轨迹
+    
     x_step = np.random.choice([-1,1],steps)
     y_step = np.random.choice([-1,1],steps)
 
@@ -33,6 +34,7 @@ def plot_single_walk(path):
     # 2. 使用 plt.scatter 标记起点和终点
     # 3. 设置坐标轴比例相等
     # 4. 添加图例
+    x_coords, y_coords = path
     plt.plot(x_coords, y_coords, marker='.')
     plt.scatter([x_coords[0]], [y_coords[0]], color='green', s=100, label='Start')
     plt.scatter([x_coords[-1]], [y_coords[-1]], color='red', s=100, label='End')
@@ -49,7 +51,7 @@ def plot_multiple_walks():
     #    - 绘制轨迹线
     #    - 标记起点和终点
     #    - 设置标题和图例
-     fig, axes = plt.subplots(2, 2, figsize=(12, 12))
+    fig, axes = plt.subplots(2, 2, figsize=(12, 12))
     axes = axes.ravel()
     
     for i in range(4):
