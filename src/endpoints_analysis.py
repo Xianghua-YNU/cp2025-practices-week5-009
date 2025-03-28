@@ -88,7 +88,7 @@ def analyze_x_distribution(endpoints):
     # 3. 绘制直方图
     # 4. 添加理论正态分布曲线
     # 5. 设置图形属性并打印统计结果
-   x_coords = endpoints[0]  # 获取x坐标数组
+    x_coords = endpoints[0]  # 获取x坐标数组
     
     # 计算统计量
     mean = np.mean(x_coords) #样本均值
